@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 06:22:21 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/03 07:47:15 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/03 12:01:45 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,14 @@ t_data	*ft_init(void)
 t_data	*ft_new_window(t_data *data)
 {
 	data->win = mlx_new_window(data->mlx, WIDTH, HEIGHT, "fractol");
+	if (!data->win)
+	{
+		close_window(data);
+		return (NULL);
+	}
 	return (data);
 }
+
 t_data	*ft_new_image(t_data *data)
 {
 	data->img = mlx_new_image(data->mlx, WIDTH, HEIGHT);
@@ -53,6 +59,7 @@ t_data	*ft_new_image(t_data *data)
 
 t_data	*ft_get_addr(t_data *data)
 {
-	data->addr = mlx_get_data_addr(data->img, &data->bpp, &data->line_len, &data->endian);
+	data->addr = mlx_get_data_addr(data->img, &data->bpp,
+			&data->line_len, &data->endian);
 	return (data);
 }

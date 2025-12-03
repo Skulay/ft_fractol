@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 06:29:29 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/03 07:29:22 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/03 12:08:40 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,20 @@ int	julia(t_complex z, t_complex c, int max_iter)
 	{
 		r = z.r * z.r - z.i * z.i + c.r;
 		im = 2 * z.r * z.i + c.i;
-
 		z.r = r;
 		z.i = im;
-
 		if (z.r * z.r + z.i * z.i > 4)
-			break;
+			break ;
 		i++;
 	}
 	return (i);
 }
-void	ft_render_julia(t_data *data)
+
+void	ft_render_julia(t_data *data, t_complex	z)
 {
 	int			x;
 	int			y;
 	int			iter;
-	t_complex	z;
 	double		re;
 	double		im;
 
@@ -48,8 +46,10 @@ void	ft_render_julia(t_data *data)
 		x = 0;
 		while (x < WIDTH)
 		{
-			re = (x - WIDTH / 2.0) / (0.5 * data->zoom * WIDTH) + data->offset_x;
-			im = (y - HEIGHT / 2.0) / (0.5 * data->zoom * HEIGHT) + data->offset_y;
+			re = (x - WIDTH / 2.0) / (0.5 * data->zoom * WIDTH)
+				+ data->offset_x;
+			im = (y - HEIGHT / 2.0) / (0.5 * data->zoom * HEIGHT)
+				+ data->offset_y;
 			z.r = re;
 			z.i = im;
 			iter = julia(z, data->julia_c, data->max_iter);

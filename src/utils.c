@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 06:29:38 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/03 07:12:46 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/03 12:59:45 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,21 +37,32 @@ int	close_window(t_data *data)
 	return (0);
 }
 
+static void	skip_spaces(const char **s)
+{
+	while (**s == ' ' || (**s >= 9 && **s <= 13))
+		(*s)++;
+}
+
 double	ft_atod(const char *s)
 {
-	double	result = 0.0;
-	double	sign = 1.0;
-	double	frac = 1.0;
+	double	result;
+	double	sign;
+	double	frac;
 
-	while (*s == ' ' || (*s >= 9 && *s <= 13))
-		s++;
+	result = 0.0;
+	sign = 1.0;
+	frac = 1.0;
+	skip_spaces(&s);
 	if (*s == '-' || *s == '+')
-		sign = (*s++ == '-') ? -1.0 : 1.0;
+	{
+		if (*s == '-')
+			sign = -1.0;
+		s++;
+	}
 	while (*s >= '0' && *s <= '9')
 		result = result * 10.0 + (*s++ - '0');
-	if (*s == '.')
+	if (*s++ == '.')
 	{
-		s++;
 		while (*s >= '0' && *s <= '9')
 		{
 			frac *= 0.1;
@@ -63,11 +74,11 @@ double	ft_atod(const char *s)
 
 void	ft_how_to_use(void)
 {
-	write(2, "Usage:\n", 7);
-	write(2, "  ./fractol mandelbrot\n", 23);
-	write(2, "  ./fractol julia <real> <imag>\n", 32);
-	write(2, "  ./fractol burningship\n", 24);
-	write(2, "Exemples:\n", 10);
-	write(2, "  ./fractol julia -0.8 0.156\n", 28);
+	(void)!write(2, "Usage:\n", 7);
+	(void)!write(2, "  ./fractol mandelbrot\n", 23);
+	(void)!write(2, "  ./fractol julia <real> <imag>\n", 32);
+	(void)!write(2, "  ./fractol burningship\n", 24);
+	(void)!write(2, "Exemples:\n", 10);
+	(void)!write(2, "  ./fractol julia -0.8 0.156\n", 28);
 	exit(1);
 }

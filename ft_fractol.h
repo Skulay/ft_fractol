@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 06:23:21 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/03 07:46:13 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/03 13:03:50 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,17 @@
 # define MANDELBROT 0
 # define JULIA 1
 # define BURNSHIP 2
+# define ESC 65307
+# define LEFT 65361
+# define RIGHT 65363
+# define UP 65362
+# define DOWN 65364
+# define PLUS 61
+# define MINUS 45
+# define SEVEN 55
+# define HEIGHT 56
+# define ONE 49
+# define TWO 50
 
 typedef struct s_complex
 {
@@ -62,15 +73,15 @@ void	ft_render(t_data *data);
 
 // mandelbrot
 int		mandelbrot(t_complex z, t_complex c, int max_iter);
-void	ft_render_mandelbrot(t_data *d);
+void	ft_render_mandelbrot(t_data *d, t_complex z, t_complex c);
 
 // julia
 int		julia(t_complex z, t_complex c, int max_iter);
-void	ft_render_julia(t_data *d);
+void	ft_render_julia(t_data *d, t_complex z);
 
 // burningship
 int		burning_ship(t_complex z, t_complex c, int max_iter);
-void	ft_render_burning_ship(t_data *data);
+void	ft_render_burning_ship(t_data *data, t_complex z, t_complex c);
 
 // utilitaire
 double	ft_atod(const char *s);

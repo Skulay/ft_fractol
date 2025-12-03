@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 07:04:41 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/03 07:51:03 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/03 13:05:10 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 
 int	key_handler(int keycode, t_data *data)
 {
-	if (keycode == 65307) // ESC
+	if (keycode == ESC)
 		close_window(data);
-	if (keycode == 65361) // LEFT
+	if (keycode == LEFT)
 		data->offset_x -= 0.1 / data->zoom;
-	if (keycode == 65363) // RIGHT
+	if (keycode == RIGHT)
 		data->offset_x += 0.1 / data->zoom;
-	if (keycode == 65362) // UP
+	if (keycode == UP)
 		data->offset_y -= 0.1 / data->zoom;
-	if (keycode == 65364) // DOWN
+	if (keycode == DOWN)
 		data->offset_y += 0.1 / data->zoom;
-	if (keycode == 61) // +
+	if (keycode == PLUS)
 		data->zoom *= 1.1;
-	if (keycode == 45) // -
+	if (keycode == MINUS)
 		data->zoom /= 1.1;
-	if (keycode == 55) // 7
+	if (keycode == SEVEN)
 		data->max_iter -= 10;
-	if (keycode == 56) // 8
+	if (keycode == HEIGHT)
 		data->max_iter += 10;
-	if (keycode == 49 && data->color > 0) // 1
+	if (keycode == ONE && data->color > 0)
 		data->color -= 1;
-	if (keycode == 50 && data->color < 3) // 2
+	if (keycode == TWO && data->color < 3)
 		data->color += 1;
 	ft_render(data);
 	return (0);

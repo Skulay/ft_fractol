@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 07:39:02 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/03 07:53:55 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/03 12:10:23 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,17 @@ int	burning_ship(t_complex z, t_complex c, int max_iter)
 		z.r = r;
 		z.i = im;
 		if (z.r * z.r + z.i * z.i > 4)
-			break;
+			break ;
 		i++;
 	}
 	return (i);
 }
 
-void	ft_render_burning_ship(t_data *data)
+void	ft_render_burning_ship(t_data *data, t_complex z, t_complex c)
 {
 	int			x;
 	int			y;
 	int			iter;
-	t_complex	z;
-	t_complex	c;
 	double		re;
 	double		im;
 
@@ -52,8 +50,10 @@ void	ft_render_burning_ship(t_data *data)
 		x = 0;
 		while (x < WIDTH)
 		{
-			re = (x - WIDTH / 2.0) / (0.5 * data->zoom * WIDTH) + data->offset_x;
-			im = (y - HEIGHT / 2.0) / (0.5 * data->zoom * HEIGHT) + data->offset_y;
+			re = (x - WIDTH / 2.0) / (0.5 * data->zoom * WIDTH)
+				+ data->offset_x;
+			im = (y - HEIGHT / 2.0) / (0.5 * data->zoom * HEIGHT)
+				+ data->offset_y;
 			z.r = 0;
 			z.i = 0;
 			c.r = re;
