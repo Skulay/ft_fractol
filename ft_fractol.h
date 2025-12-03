@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 06:23:21 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/03 13:03:50 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/03 14:32:35 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 # define PLUS 61
 # define MINUS 45
 # define SEVEN 55
-# define HEIGHT 56
+# define EIGHT 56
 # define ONE 49
 # define TWO 50
 
