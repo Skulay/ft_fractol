@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 07:04:41 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/04 13:26:46 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/04 14:25:58 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,10 @@ int	key_handler(int keycode, t_data *data)
 	return (0);
 }
 
-int	mouse_handler(int button, t_data *data)
+int	mouse_handler(int button, int x, int y, t_data *data)
 {
+	(void)x;
+	(void)y;
 	if (button == WHEELUP)
 		data->zoom *= 1.1;
 	if (button == WHEELDOWN)

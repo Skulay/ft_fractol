@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 06:23:21 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/04 13:27:06 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/04 14:26:19 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include <stdio.h>
 # include <math.h>
 
-# define WIDTH 800
-# define HEIGHT 800
+# define WIDTH 1000
+# define HEIGHT 1000
 # define MANDELBROT 0
 # define JULIA 1
 # define BURNSHIP 2
@@ -93,7 +93,7 @@ void	ft_how_to_use(void);
 
 // recup d'input keyboard
 int		key_handler(int keycode, t_data *data);
-int		mouse_handler(int button, t_data *data);
+int		mouse_handler(int button, int x, int y, t_data *data);
 
 // color
 int		ft_color(t_data *data, int iter, int max_iter);
