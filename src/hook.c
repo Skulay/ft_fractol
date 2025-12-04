@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 07:04:41 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/03 14:32:26 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/04 13:26:46 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,16 @@ int	key_handler(int keycode, t_data *data)
 		data->color -= 1;
 	if (keycode == TWO && data->color < 3)
 		data->color += 1;
+	ft_render(data);
+	return (0);
+}
+
+int	mouse_handler(int button, t_data *data)
+{
+	if (button == WHEELUP)
+		data->zoom *= 1.1;
+	if (button == WHEELDOWN)
+		data->zoom /= 1.1;
 	ft_render(data);
 	return (0);
 }

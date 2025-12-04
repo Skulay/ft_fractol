@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 06:23:21 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/03 14:32:35 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/04 13:27:06 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@
 # define EIGHT 56
 # define ONE 49
 # define TWO 50
+# define WHEELUP 4
+# define WHEELDOWN 5
 
 typedef struct s_complex
 {
@@ -91,6 +93,7 @@ void	ft_how_to_use(void);
 
 // recup d'input keyboard
 int		key_handler(int keycode, t_data *data);
+int		mouse_handler(int button, t_data *data);
 
 // color
 int		ft_color(t_data *data, int iter, int max_iter);
