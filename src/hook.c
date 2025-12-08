@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 07:04:41 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/04 14:25:58 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/08 15:34:26 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,24 @@ int	key_handler(int keycode, t_data *data)
 
 int	mouse_handler(int button, int x, int y, t_data *data)
 {
-	(void)x;
-	(void)y;
-	if (button == WHEELUP)
-		data->zoom *= 1.1;
-	if (button == WHEELDOWN)
-		data->zoom /= 1.1;
-	ft_render(data);
+	double	mr;
+	double	mi;
+
+	if (button == WHEELUP || button == WHEELDOWN)
+	{
+		mr = (x - WIDTH / 2.0)
+			/ (0.5 * data->zoom * WIDTH) + data->offset_x;
+		mi = (y - HEIGHT / 2.0)
+			/ (0.5 * data->zoom * HEIGHT) + data->offset_y;
+		if (button == WHEELUP)
+			data->zoom *= 1.1;
+		else
+			data->zoom /= 1.1;
+		data->offset_x = mr - ((x - WIDTH / 2.0)
+				/ (0.5 * data->zoom * WIDTH));
+		data->offset_y = mi - ((y - HEIGHT / 2.0)
+				/ (0.5 * data->zoom * HEIGHT));
+		ft_render(data);
+	}
 	return (0);
 }
