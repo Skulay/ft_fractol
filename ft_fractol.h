@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 06:23:21 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/04 14:26:19 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/08 15:47:51 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@
 # define TWO 50
 # define WHEELUP 4
 # define WHEELDOWN 5
+# define BLACK 0x000000
 
 typedef struct s_complex
 {

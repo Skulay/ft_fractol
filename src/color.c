@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 07:21:27 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/08 15:44:29 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/08 15:48:00 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_color(t_data *data, int iter, int max_iter)
 	double	t;
 
 	if (iter == max_iter)
-		return (0x000000);
+		return (BLACK);
 	t = (double)iter / (double)max_iter;
 	if (data->color == 0)
 		return (ft_color_scheme0(t));
