@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 06:23:21 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/08 15:47:51 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/10 12:39:59 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 # include <stdio.h>
 # include <math.h>
 
-# define WIDTH 1000
-# define HEIGHT 1000
+# define WIDTH 800
+# define HEIGHT 800
 # define MANDELBROT 0
 # define JULIA 1
 # define BURNSHIP 2
@@ -63,28 +63,30 @@ typedef struct s_data
 }	t_data;
 
 // fonction pour la struct
-t_data	*ft_init(void);
+t_data	*ft_init_struct(void);
+t_data	*ft_init(t_data *data);
 t_data	*ft_new_window(t_data *data);
 t_data	*ft_new_image(t_data *data);
 t_data	*ft_get_addr(t_data *data);
 
 // parsing
-void	parse_args(t_data *data, int ac, char **av);
+int		parse_args(t_data *data, int ac, char **av);
+int		verif_arg(char *av);
 
 // rendu
 void	ft_render(t_data *data);
 
 // mandelbrot
 int		mandelbrot(t_complex z, t_complex c, int max_iter);
-void	ft_render_mandelbrot(t_data *d, t_complex z, t_complex c);
+void	ft_render_mandelbrot(t_data *d);
 
 // julia
 int		julia(t_complex z, t_complex c, int max_iter);
-void	ft_render_julia(t_data *d, t_complex z);
+void	ft_render_julia(t_data *d);
 
 // burningship
 int		burning_ship(t_complex z, t_complex c, int max_iter);
-void	ft_render_burning_ship(t_data *data, t_complex z, t_complex c);
+void	ft_render_burning_ship(t_data *data);
 
 // utilitaire
 double	ft_atod(const char *s);

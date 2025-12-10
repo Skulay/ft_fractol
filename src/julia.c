@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 06:29:29 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/03 12:08:40 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/10 12:39:51 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,12 @@ int	julia(t_complex z, t_complex c, int max_iter)
 	return (i);
 }
 
-void	ft_render_julia(t_data *data, t_complex	z)
+void	ft_render_julia(t_data *data)
 {
 	int			x;
 	int			y;
 	int			iter;
-	double		re;
-	double		im;
+	t_complex	z;
 
 	y = 0;
 	while (y < HEIGHT)
@@ -46,14 +45,13 @@ void	ft_render_julia(t_data *data, t_complex	z)
 		x = 0;
 		while (x < WIDTH)
 		{
-			re = (x - WIDTH / 2.0) / (0.5 * data->zoom * WIDTH)
+			z.r = (x - WIDTH / 2.0) / (0.5 * data->zoom * WIDTH)
 				+ data->offset_x;
-			im = (y - HEIGHT / 2.0) / (0.5 * data->zoom * HEIGHT)
+			z.i = (y - HEIGHT / 2.0) / (0.5 * data->zoom * HEIGHT)
 				+ data->offset_y;
-			z.r = re;
-			z.i = im;
 			iter = julia(z, data->julia_c, data->max_iter);
-			ft_put_pixel(data, x++, y, ft_color(data, iter, data->max_iter));
+			ft_put_pixel(data, x, y, ft_color(data, iter, data->max_iter));
+			x++;
 		}
 		y++;
 	}

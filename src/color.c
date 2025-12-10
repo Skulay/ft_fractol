@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 07:21:27 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/08 15:48:00 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/10 08:48:03 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,24 @@ int	ft_color_scheme2(double t)
 
 int	ft_color_scheme3(double t)
 {
-	int	r;
-	int	g;
-	int	b;
+	double	k;
+	int		r;
+	int		g;
+	int		b;
 
-	r = 255;
-	g = (int)(t * 150);
-	b = (int)((1 - t) * 80);
+	if (t > 0.5)
+	{
+		k = (t - 0.5) / 0.5;
+		r = (int)(0 * (1 - k) + 0 * k);
+		g = (int)(0 * (1 - k) + 80 * k);
+		b = (int)(0 * (1 - k) + 255 * k);
+	}
+	else
+	{
+		k = t / 0.5;
+		r = (int)(0 * (1 - k) + 255 * k);
+		g = (int)(80 * (1 - k) + 200 * k);
+		b = (int)(255 * (1 - k) + 50 * k);
+	}
 	return ((r << 16) | (g << 8) | b);
 }

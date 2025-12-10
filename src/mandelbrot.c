@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 06:29:31 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/03 12:04:19 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/10 12:37:55 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ int	mandelbrot(t_complex z, t_complex c, int max_iter)
 	return (i);
 }
 
-void	ft_render_mandelbrot(t_data *data, t_complex z, t_complex c)
+void	ft_render_mandelbrot(t_data *data)
 {
 	int			x;
 	int			y;
 	int			iter;
-	double		re;
-	double		im;
+	t_complex	z;
+	t_complex	c;
 
 	y = 0;
 	while (y < HEIGHT)
@@ -46,14 +46,12 @@ void	ft_render_mandelbrot(t_data *data, t_complex z, t_complex c)
 		x = 0;
 		while (x < WIDTH)
 		{
-			re = (x - WIDTH / 2.0) / (0.5 * data->zoom * WIDTH)
+			c.r = (x - WIDTH / 2.0) / (0.5 * data->zoom * WIDTH)
 				+ data->offset_x;
-			im = (y - HEIGHT / 2.0) / (0.5 * data->zoom * HEIGHT)
+			c.i = (y - HEIGHT / 2.0) / (0.5 * data->zoom * HEIGHT)
 				+ data->offset_y;
 			z.r = 0;
 			z.i = 0;
-			c.r = re;
-			c.i = im;
 			iter = mandelbrot(z, c, data->max_iter);
 			ft_put_pixel(data, x++, y, ft_color(data, iter, data->max_iter));
 		}

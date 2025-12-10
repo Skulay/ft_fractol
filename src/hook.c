@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 07:04:41 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/08 15:34:26 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/10 10:57:26 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	key_handler(int keycode, t_data *data)
 		data->zoom *= 1.1;
 	if (keycode == MINUS)
 		data->zoom /= 1.1;
-	if (keycode == SEVEN)
+	if (keycode == SEVEN && data->max_iter > 10)
 		data->max_iter -= 10;
 	if (keycode == EIGHT)
 		data->max_iter += 10;
