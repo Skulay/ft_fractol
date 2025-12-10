@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 06:23:21 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/10 12:39:59 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/10 14:31:16 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ void	ft_render_burning_ship(t_data *data);
 double	ft_atod(const char *s);
 void	ft_put_pixel(t_data *data, int x, int y, int color);
 int		close_window(t_data *data);
+int		handle_close(t_data *data);
 void	ft_how_to_use(void);
 
 // recup d'input keyboard

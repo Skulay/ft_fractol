@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 07:04:41 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/10 10:57:26 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/10 14:36:00 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	key_handler(int keycode, t_data *data)
 {
 	if (keycode == ESC)
-		close_window(data);
+		handle_close(data);
 	if (keycode == LEFT)
 		data->offset_x -= 0.1 / data->zoom;
 	if (keycode == RIGHT)

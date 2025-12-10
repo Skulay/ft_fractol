@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 06:29:38 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/10 12:44:31 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/10 14:33:41 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,6 @@ int	close_window(t_data *data)
 {
 	if (!data)
 		return (0);
-    mlx_hook(data->win, 2, 0, NULL, NULL);
-    mlx_hook(data->win, 4, 0, NULL, NULL);
-    mlx_hook(data->win, 17, 0, NULL, NULL);
 	if (data->img)
 		mlx_destroy_image(data->mlx, data->img);
 	data->img = NULL;
@@ -42,7 +39,6 @@ int	close_window(t_data *data)
 	}
 	data->mlx = NULL;
 	free(data);
-	exit(0);
 	return (0);
 }
 
@@ -82,10 +78,8 @@ double	ft_atod(const char *s)
 	return (result * sign);
 }
 
-void	ft_how_to_use(void)
+int handle_close(t_data *data)
 {
-	ft_printf("Usage:\n  ./fractol mandelbrot\n");
-	ft_printf("  ./fractol julia <real> <imag>\n  ./fractol burningship\n");
-	ft_printf("Exemples:\n  ./fractol julia -0.8 0.156\n");
-	exit(1);
+	close_window(data);
+	exit(0);
 }
