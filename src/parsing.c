@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 06:29:34 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/13 15:50:49 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/13 21:12:53 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,69 +14,57 @@
 
 int	parse_args(t_data *data, int ac, char **av)
 {
-	if (ac == 2 && (ft_strncmp(av[1], "mandelbrot", 10) == 0))
+	if (ac == 2 && (ft_strncmp(av[1], "mandelbrot\0", 11) == 0))
 	{
 		data->type = MANDELBROT;
 		return (1);
 	}
-	else if (ac == 4 && (ft_strncmp(av[1], "julia", 5) == 0))
+	else if (ac == 4 && (ft_strncmp(av[1], "julia\0", 6) == 0))
 	{
-		if (!verif_arg(av[2]) || !verif_arg(av[3]))
-			return (0);
-		if (!if_empty(av[2]) || !if_empty(av[3]))
+		if (!valid_number(av[2]) || !valid_number(av[3]))
 			return (0);
 		data->type = JULIA;
 		data->julia_c.r = ft_atod(av[2]);
 		data->julia_c.i = ft_atod(av[3]);
 		return (1);
 	}
-	else if (ac == 2 && (ft_strncmp(av[1], "burningship", 11) == 0))
+	else if (ac == 2 && (ft_strncmp(av[1], "burningship\0", 12) == 0))
 	{
 		data->type = BURNSHIP;
 		return (1);
 	}
-	else
-		return (0);
 	return (0);
 }
 
-int	verif_arg(char *av)
+int	valid_number(char *s)
 {
-	char	*str;
-	int		i;
-	int		j;
-	int		ok;
+	int	i;
+	int	before;
+	int	after;
 
-	str = "+-0123456789.";
 	i = 0;
-	while (av[i])
-	{
-		j = 0;
-		ok = 0;
-		while (str[j])
-		{
-			if (str[j] == av[i])
-			{
-				ok = 1;
-				break ;
-			}
-			j++;
-		}
-		if (!ok)
-			return (0);
+	before = 0;
+	after = 0;
+	if (!s || !s[0])
+		return (0);
+	if (is_sign(s[i]))
 		i++;
+	while (ft_isdigit(s[i]) && ++before)
+		i++;
+	if (s[i] == '.')
+	{
+		i++;
+		while (ft_isdigit(s[i]) && ++after)
+			i++;
 	}
+	if (!before || (s[i - 1] == '.' && !after) || s[i])
+		return (0);
 	return (1);
 }
 
-int	if_empty(char *av)
+int	is_sign(char c)
 {
-	int	i;
-
-	i = 0;
-	while (av[i])
-		i++;
-	if (i == 0)
-		return (0);
-	return (1);
+	if (c == '-' || c == '+')
+		return (1);
+	return (0);
 }

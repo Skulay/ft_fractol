@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 06:23:21 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/13 15:51:17 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/13 20:57:56 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,10 @@ t_data	*ft_get_addr(t_data *data);
 
 // parsing
 int		parse_args(t_data *data, int ac, char **av);
-int		verif_arg(char *av);
 int		if_empty(char *av);
+int		valid_number(char *s);
+int		is_sign(char c);
+
 
 // rendu
 void	ft_render(t_data *data);
