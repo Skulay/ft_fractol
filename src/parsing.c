@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 06:29:34 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/10 14:48:58 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/13 15:50:49 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	parse_args(t_data *data, int ac, char **av)
 	else if (ac == 4 && (ft_strncmp(av[1], "julia", 5) == 0))
 	{
 		if (!verif_arg(av[2]) || !verif_arg(av[3]))
+			return (0);
+		if (!if_empty(av[2]) || !if_empty(av[3]))
 			return (0);
 		data->type = JULIA;
 		data->julia_c.r = ft_atod(av[2]);
@@ -67,3 +69,14 @@ int	verif_arg(char *av)
 	return (1);
 }
 
+int	if_empty(char *av)
+{
+	int	i;
+
+	i = 0;
+	while (av[i])
+		i++;
+	if (i == 0)
+		return (0);
+	return (1);
+}

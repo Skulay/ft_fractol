@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 07:13:50 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/10 14:31:38 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/13 16:27:25 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	main(int ac, char **av)
 	mlx_loop(fractol->mlx);
 	return (0);
 }
+
 void	ft_how_to_use(void)
 {
 	ft_printf("Usage:\n  ./fractol mandelbrot\n");

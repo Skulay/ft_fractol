@@ -1,7 +1,7 @@
 NAME		= fractol
 
 CC			= gcc
-CFLAGS		= -Wall -Wextra -Werror -O3 -flto -ffast-math -march=native -pipe
+CFLAGS		= -Wall -Wextra -Werror -O2 -g
 
 HEADER		= ft_fractol.h
 SRC_DIR		= src

@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 06:23:21 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/10 14:31:16 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/13 15:51:17 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ typedef struct s_data
 	t_complex	julia_c;
 }	t_data;
 
-// fonction pour la struct
+// function struct
 t_data	*ft_init_struct(void);
 t_data	*ft_init(t_data *data);
 t_data	*ft_new_window(t_data *data);
@@ -72,6 +72,7 @@ t_data	*ft_get_addr(t_data *data);
 // parsing
 int		parse_args(t_data *data, int ac, char **av);
 int		verif_arg(char *av);
+int		if_empty(char *av);
 
 // rendu
 void	ft_render(t_data *data);
@@ -95,7 +96,7 @@ int		close_window(t_data *data);
 int		handle_close(t_data *data);
 void	ft_how_to_use(void);
 
-// recup d'input keyboard
+// input keyboard & mouse
 int		key_handler(int keycode, t_data *data);
 int		mouse_handler(int button, int x, int y, t_data *data);
 

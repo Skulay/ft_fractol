@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 06:29:38 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/10 14:33:41 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/13 16:27:41 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ int	close_window(t_data *data)
 	free(data);
 	return (0);
 }
-
 
 static void	skip_spaces(const char **s)
 {
@@ -78,7 +77,7 @@ double	ft_atod(const char *s)
 	return (result * sign);
 }
 
-int handle_close(t_data *data)
+int	handle_close(t_data *data)
 {
 	close_window(data);
 	exit(0);

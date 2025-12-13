@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 06:29:29 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/10 14:57:16 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/13 16:27:14 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_render_julia(t_data *data)
 			z.r = (x - WIDTH / 2.0) / (0.5 * data->zoom * WIDTH)
 				+ data->offset_x;
 			z.i = (HEIGHT / 2.0 - y) / (0.5 * data->zoom * HEIGHT)
-					+ data->offset_y;
+				+ data->offset_y;
 			iter = julia(z, data->julia_c, data->max_iter);
 			ft_put_pixel(data, x, y, ft_color(data, iter, data->max_iter));
 			x++;

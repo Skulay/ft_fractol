@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/17 13:10:34 by alehamad          #+#    #+#             */
-/*   Updated: 2025/11/20 09:29:59 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/13 15:29:17 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ size_t	ft_strlen_printf(const char *s)
 
 int	ft_puthex(unsigned long n)
 {
-	int		count;
-	char	*base;
+	int			count;
+	const char	*base;
 
 	count = 0;
 	base = "0123456789abcdef";
@@ -42,8 +42,8 @@ int	ft_puthex(unsigned long n)
 
 int	ft_putbighex(unsigned long n)
 {
-	int		count;
-	char	*base;
+	int			count;
+	const char	*base;
 
 	count = 0;
 	base = "0123456789ABCDEF";
