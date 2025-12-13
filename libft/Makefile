@@ -57,8 +57,8 @@ OBJBONUS = $(BONUS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(AR) $(NAME) $(OBJ)
+$(NAME): $(OBJ) $(OBJBONUS)
+	$(AR) $(NAME) $(OBJ) $(OBJBONUS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -69,9 +69,6 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 
-bonus: $(OBJ) $(OBJBONUS)
-	$(AR) $(NAME) $(OBJ) $(OBJBONUS)
-
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re
