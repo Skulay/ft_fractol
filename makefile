@@ -8,6 +8,9 @@ SRC_DIR		= src
 LIBFT_DIR	= libft
 MLX_DIR		= minilibx-linux
 
+LIBFT_REPO	= https://github.com/Skulay/libft.git
+MLX_REPO	= https://github.com/42Paris/minilibx-linux.git
+
 LIBFT		= $(LIBFT_DIR)/libft.a
 MLX			= $(MLX_DIR)/libmlx_Linux.a
 
@@ -37,22 +40,33 @@ $(NAME): $(LIBFT) $(MLX) $(OBJ)
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
-$(LIBFT):
+$(OBJ): | $(LIBFT_DIR) $(MLX_DIR)
+
+$(LIBFT_DIR):
+	git clone --depth 1 $(LIBFT_REPO) $(LIBFT_DIR)
+
+$(MLX_DIR):
+	git clone --depth 1 $(MLX_REPO) $(MLX_DIR)
+
+$(LIBFT): | $(LIBFT_DIR)
 	make -C $(LIBFT_DIR)
 
-$(MLX):
+$(MLX): | $(MLX_DIR)
 	make -C $(MLX_DIR)
 
 clean:
 	rm -f $(OBJ)
-	make -C $(LIBFT_DIR) clean
-	make -C $(MLX_DIR) clean
+	if [ -d $(LIBFT_DIR) ]; then make -C $(LIBFT_DIR) clean; fi
+	if [ -d $(MLX_DIR) ]; then make -C $(MLX_DIR) clean; fi
 
 fclean: clean
 	rm -f $(NAME)
-	make -C $(LIBFT_DIR) fclean
+	if [ -d $(LIBFT_DIR) ]; then make -C $(LIBFT_DIR) fclean; fi
+
+distclean: fclean
+	rm -rf $(LIBFT_DIR) $(MLX_DIR)
 
 re: fclean
 	make all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean distclean re

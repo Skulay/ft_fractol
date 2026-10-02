@@ -6,7 +6,7 @@
 /*   By: alehamad <alehamad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 06:29:34 by alehamad          #+#    #+#             */
-/*   Updated: 2025/12/13 21:12:53 by alehamad         ###   ########.fr       */
+/*   Updated: 2025/12/16 07:16:01 by alehamad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ int	parse_args(t_data *data, int ac, char **av)
 		data->type = JULIA;
 		data->julia_c.r = ft_atod(av[2]);
 		data->julia_c.i = ft_atod(av[3]);
+		if (fabs(data->julia_c.r) > 40.0
+			|| fabs(data->julia_c.i) > 40.0)
+			return (0);
 		return (1);
 	}
 	else if (ac == 2 && (ft_strncmp(av[1], "burningship\0", 12) == 0))
@@ -57,7 +60,7 @@ int	valid_number(char *s)
 		while (ft_isdigit(s[i]) && ++after)
 			i++;
 	}
-	if (!before || (s[i - 1] == '.' && !after) || s[i])
+	if (!before || (i > 0 && s[i - 1] == '.' && !after) || s[i])
 		return (0);
 	return (1);
 }
